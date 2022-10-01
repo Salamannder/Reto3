@@ -18,7 +18,7 @@ public class MessageService {
     }
 
     public Message salvarMessage(Message message) {
-        if (message.getId() == null) {
+        if (message.getIdMessage() == null) {
             return messageRepository.salvarMessage(message);
         } else {
             return message;

@@ -15,7 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idMessage;
+    
+
     private String messageText;
 
     @ManyToOne
@@ -24,17 +26,19 @@ public class Message {
     private Partyroom partyroom;
 
 
+  
+
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({ "message", "reservation", "client" })
+    @JsonIgnoreProperties({ "messages", "reservations", "client" })
     private Client client;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
     public String getmessageText() {

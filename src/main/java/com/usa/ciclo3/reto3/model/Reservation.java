@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ididReservation;
+    private Integer idReservation;
    
 
     private Date startDate;
@@ -42,16 +42,15 @@ public class Reservation {
     @OneToMany(mappedBy = "reservation")
     @JsonIgnoreProperties({ "reservation" })
     private List<Score> score;
-
-    public Integer getIdidReservation() {
-        return ididReservation;
+    
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setIdidReservation(Integer ididReservation) {
-        this.ididReservation = ididReservation;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
-
-
+  
     public Date getStartDate() {
         return startDate;
     }

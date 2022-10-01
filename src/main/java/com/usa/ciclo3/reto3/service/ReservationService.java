@@ -18,7 +18,7 @@ public class ReservationService {
     }
 
     public Reservation salvarReservation(Reservation reservation) {
-        if (reservation.getIdidReservation() == null) {
+        if (reservation.getIdReservation() == null) {
             return reservationRepository.salvarReservation(reservation);
         } else {
             return reservation;
