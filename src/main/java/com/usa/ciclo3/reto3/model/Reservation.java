@@ -3,7 +3,7 @@ package com.usa.ciclo3.reto3.model;
 
 
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -23,7 +23,6 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
    
-
     private Date startDate;
     private Date devolutionDate;
     private String status="created";
@@ -31,18 +30,15 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "partyroomId")
-    @JsonIgnoreProperties({ "reservation" })
+    @JsonIgnoreProperties({ "reservations" })
     private Partyroom partyroom;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({ "reservation" })
+    @JsonIgnoreProperties({ "reservations", "messages" })
     private Client client;
+    private String score;
 
-    @OneToMany(mappedBy = "reservation")
-    @JsonIgnoreProperties({ "reservation" })
-    private List<Score> score;
-    
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -50,7 +46,8 @@ public class Reservation {
     public void setIdReservation(Integer idReservation) {
         this.idReservation = idReservation;
     }
-  
+
+
     public Date getStartDate() {
         return startDate;
     }
@@ -92,11 +89,11 @@ public class Reservation {
         this.client = client;
     }
 
-    public List<Score> getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(List<Score> score) {
+    public void setScore(String score) {
         this.score = score;
     }
 }
