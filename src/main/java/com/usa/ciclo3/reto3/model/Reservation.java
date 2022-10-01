@@ -30,7 +30,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "partyroomId")
-    @JsonIgnoreProperties({ "reservations" })
+    @JsonIgnoreProperties({ "reservations"})
     private Partyroom partyroom;
 
     @ManyToOne

@@ -30,7 +30,7 @@ public class Partyroom {
     private Category category;
 
     @OneToMany(mappedBy = "partyroom")
-    @JsonIgnoreProperties({ "partyrooms","client" })
+    @JsonIgnoreProperties({ "partyroom","client" })
     private List<Message> messages;
 
     @OneToMany(mappedBy = "partyroom")
