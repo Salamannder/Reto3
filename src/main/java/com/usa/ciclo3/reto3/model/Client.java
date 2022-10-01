@@ -25,7 +25,7 @@ public class Client {
     private Integer age;
 
     @OneToMany(mappedBy = "client")
-    @JsonIgnoreProperties({ "client" })
+    @JsonIgnoreProperties({ "client", "messages" })
     private List<Message> messages;
 
     @OneToMany(mappedBy = "client")
