@@ -7,7 +7,7 @@ function guardarInformacion() {
 
     $.ajax({
 
-        url: 'http://localhost:81/api/Message/save',
+        url: 'http://129.213.160.180:81/api/Message/save',
         type: 'POST',
         data: dataToSend,
         datatype: "JSON",
@@ -27,7 +27,7 @@ function guardarInformacion() {
 
 function traerInformacion() {
     $.ajax({
-            url: "http://localhost:81/api/Message/all",
+            url: "http://129.213.160.180:81/api/Message/all",
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
