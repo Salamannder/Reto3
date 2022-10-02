@@ -1,0 +1,132 @@
+h1 {
+    text-align: center;
+    background-color: white;
+    border: 5px solid;
+    color: black;
+    margin-top: 0px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+h3 {
+    border: 5px solid;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.H3_ {
+    text-align: left;
+}
+
+body {
+    background-image: url(/Img/Fiesta.jpg);
+}
+
+p {
+    margin-left: 10px;
+    font-weight: 1000;
+}
+
+input {
+    margin-left: 5px;
+}
+
+.inputb {
+    width: 90%;
+}
+
+table {
+    border: 5px solid;
+    width: 99%;
+    margin-right: 630px;
+    margin-left: 5px;
+    background-color: lightgreen;
+}
+
+th,
+td {
+    text-align: left;
+    vertical-align: top;
+    border: 5px solid #000;
+    border-collapse: collapse;
+    padding: 0.3em;
+    caption-side: bottom;
+}
+
+caption {
+    padding: 0.3em;
+    color: #fff;
+    background: darkgreen;
+    border: 5px black solid;
+}
+
+th {
+    background: #eee;
+}
+
+td {
+    background: #eee;
+}
+
+.div-1 {
+    border: 5px solid;
+    background-color: lightgreen;
+    padding-right: 10px;
+    margin-left: 15px;
+    margin-bottom: auto;
+}
+
+.div-2 {
+    border: 5px solid;
+    background-color: lightgreen;
+    margin-left: 50px;
+    margin-right: 30px;
+}
+
+.div-3 {
+    text-align: right;
+    border: 5px solid;
+    background-color: lightgreen;
+    padding-right: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.button {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    /* Safari */
+    transition-duration: 0.4s;
+    width: 100px;
+}
+
+.button:hover {
+    background-color: silver;
+    color: black;
+}
+
+.button2 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    /* Safari */
+    transition-duration: 0.4s;
+    width: 351px;
+}
+
+.button2:hover {
+    background-color: silver;
+    color: black;
+}
+
+.buttonp {
+    transition-duration: 0.4s;
+}
+
+.buttonp:hover {
+    background-color: silver;
+    color: black;
+}
+
+.contenedor {
+    display: flex;
+}
