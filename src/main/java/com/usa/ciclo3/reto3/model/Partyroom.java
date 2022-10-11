@@ -30,14 +30,12 @@ public class Partyroom {
     private Category category;
 
     @OneToMany(mappedBy = "partyroom")
-    @JsonIgnoreProperties({ "partyroom","client" })
+    @JsonIgnoreProperties({ "partyroom", "client" })
     private List<Message> messages;
 
     @OneToMany(mappedBy = "partyroom")
     @JsonIgnoreProperties({ "partyroom" })
     private List<Reservation> reservations;
-
-
 
     public Integer getId() {
         return id;
@@ -86,7 +84,7 @@ public class Partyroom {
     public void setCategory(Category category) {
         this.category = category;
     }
-    
+
     public List<Message> getMessages() {
         return messages;
     }

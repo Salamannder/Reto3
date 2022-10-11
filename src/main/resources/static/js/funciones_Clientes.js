@@ -1,66 +1,65 @@
 function guardarInformacion() {
-
     $("#resultado").empty();
 
-    let myData = { name: $("#name").val(), email: $("#email").val(), age: $("#age").val(), password: $("#password").val() }
+    let myData = {
+        name: $("#name").val(),
+        email: $("#email").val(),
+        age: $("#age").val(),
+        password: $("#password").val(),
+    };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-
-        url: 'http://129.213.160.180:81/api/Client/save',
-        type: 'POST',
+        url: "http://129.213.160.180:81/api/Client/save",
+        type: "POST",
         data: dataToSend,
         datatype: "JSON",
-        contentType: 'application/json',
+        contentType: "application/json",
         success: function(respuesta) {
             //console.log(respuesta);
             alert("Inserción exitosa");
             traerInformacion();
+            $("#name").val('');
+            $("#email").val('');
+            $("#age").val('');
+            $("#password").val('');
         },
         error: function(xhr, status) {
-            alert('Operacion no satisfactoria,' + xhr.status);
+            alert("Operacion no satisfactoria," + xhr.status);
             traerInformacion();
-        }
-
+        },
     });
 }
 
 function traerInformacion() {
     $.ajax({
-            url: "http://129.213.160.180:81/api/Client/all",
-            type: "GET",
-            datatype: "JSON",
-            success: function(respuesta) {
-                pintarRespuestaCategoria(respuesta);
-                traerInformacion();
-
-            },
-            error: function(xhr, status) {
-                alert('Operacion no satisfactoria,' + xhr.status);
-
-            }
-
-
-        }
-
-    );
+        url: "http://129.213.160.180:81/api/Client/all",
+        type: "GET",
+        datatype: "JSON",
+        success: function(respuesta) {
+            pintarRespuestaCliente(respuesta);
+            traerInformacion();
+        },
+        error: function(xhr, status) {
+            alert("Operacion no satisfactoria," + xhr.status);
+        },
+    });
 }
 
-
-function pintarRespuestaCategoria(items) {
-
+function pintarRespuestaCliente(items) {
     $("#resultado").empty();
 
     //declarar variables js
     let myTable = "<table>";
-    myTable += "<caption>Info Clientes</caption><tr><th>Codigo</th><th>Nombre</th><th>Email</th><th>Edad</th></tr>";
+    myTable +=
+        "<caption>Info Clientes</caption><tr><th>Codigo</th><th>Nombre</th><th>Email</th><th>Edad</th><th>Acciones</th></tr>";
     for (i = 0; i < items.length; i++) {
         myTable += "<tr>";
         myTable += "<td>" + items[i].idClient + "</td>";
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].email + "</td>";
         myTable += "<td>" + items[i].age + "</td>";
-        // myTable+="<td><button onclick='borrarCategoria("+items[i].id+")'>Borrar</button>";
+        myTable += "<td><button onclick='borrarElemento(" + items[i].idClient + ")'>Borrar</button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -68,7 +67,6 @@ function pintarRespuestaCategoria(items) {
 }
 
 
-/*
 
 function editarInformacion() {
     let myData = {
@@ -81,7 +79,7 @@ function editarInformacion() {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Client/",
+        url: "http://129.213.160.180:81/api/Client/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -90,6 +88,11 @@ function editarInformacion() {
             //console.log(respuesta);
             alert("Actualizacion exitosa");
             traerInformacion();
+            $("#idClient").val('');
+            $("#name").val('');
+            $("#email").val('');
+            $("#age").val('');
+            $("#password").val('');
         },
         error: function(xhr, status) {
             alert("Operacion no satisfactoria," + xhr.status);
@@ -98,12 +101,13 @@ function editarInformacion() {
     });
 }
 
+
 function borrarElemento(idElemento) {
     let myData = { idClient: idElemento };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Client/",
+        url: "http://129.213.160.180:81/api/Client/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -118,22 +122,21 @@ function borrarElemento(idElemento) {
             traerInformacion();
         },
     });
-}*/
-/*
-function consultarId() {
-    let codigo = $("#id").val();
+}
+/*function consultarId() {
+      let codigo = $("#description").val();
 
-    $.ajax({
-        url: "http://localhost:8080/api/Client//" +
-            codigo,
-        type: "GET",
-        dataType: "json",
-        success: function(respuesta) {
-            pintarRespuesta(respuesta.items);
-        },
-        error: function(xhr, status) {
-            alert("Operacion no satisfactoria," + xhr.status);
-        },
-    });
-} 
-*/
+      $.ajax({
+          url: "http://129.213.160.180:81/api/Category//" +
+              codigo,
+          type: "GET",
+          dataType: "json",
+          success: function(respuesta) {
+              pintarRespuesta(respuesta.items);
+          },
+          error: function(xhr, status) {
+              alert("Operacion no satisfactoria," + xhr.status);
+          },
+      });
+  }
+  */

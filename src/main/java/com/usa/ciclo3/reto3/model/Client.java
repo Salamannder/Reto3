@@ -21,7 +21,7 @@ public class Client {
 
     private String email;
     private String password;
-    private String name;   
+    private String name;
     private Integer age;
 
     @OneToMany(mappedBy = "client")
@@ -31,7 +31,6 @@ public class Client {
     @OneToMany(mappedBy = "client")
     @JsonIgnoreProperties({ "client" })
     private List<Reservation> reservations;
-
 
     public Integer getIdClient() {
         return idClient;
@@ -49,7 +48,6 @@ public class Client {
         this.age = age;
     }
 
-
     public String getName() {
         return name;
     }
@@ -66,8 +64,6 @@ public class Client {
         this.email = email;
     }
 
- 
-
     public String getPassword() {
         return password;
     }
@@ -75,6 +71,7 @@ public class Client {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public List<Message> getMessages() {
         return messages;
     }
@@ -82,6 +79,7 @@ public class Client {
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
+
     public List<Reservation> getReservations() {
         return reservations;
     }

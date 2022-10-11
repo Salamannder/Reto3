@@ -1,9 +1,6 @@
 package com.usa.ciclo3.reto3.model;
 
-
-
 import java.util.Date;
-
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,15 +19,14 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
-   
+
     private Date startDate;
     private Date devolutionDate;
-    private String status="created";
-
+    private String status = "created";
 
     @ManyToOne
     @JoinColumn(name = "partyroomId")
-    @JsonIgnoreProperties({ "reservations"})
+    @JsonIgnoreProperties({ "reservations" })
     private Partyroom partyroom;
 
     @ManyToOne
@@ -47,7 +43,6 @@ public class Reservation {
         this.idReservation = idReservation;
     }
 
-
     public Date getStartDate() {
         return startDate;
     }
@@ -56,7 +51,6 @@ public class Reservation {
         this.startDate = startDate;
     }
 
-   
     public Date getDevolutionDate() {
         return devolutionDate;
     }
@@ -72,7 +66,7 @@ public class Reservation {
     public void setStatus(String status) {
         this.status = status;
     }
- 
+
     public Partyroom getPartyroom() {
         return partyroom;
     }
@@ -93,7 +87,7 @@ public class Reservation {
         return score;
     }
 
-    public void setScore(String score) {
+    public void getScore(String score) {
         this.score = score;
     }
 }

@@ -1,6 +1,7 @@
 package com.usa.ciclo3.reto3.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,14 @@ public class ClientRepository {
 
     public Client salvarClient(Client client) {
         return clientCrudRepositoryInterfaz.save(client);
+    }
+
+    public Optional<Client> getClient(int id) {
+        return clientCrudRepositoryInterfaz.findById(id);
+    }
+
+    public void delete(Client client) {
+        clientCrudRepositoryInterfaz.delete(client);
     }
 
 }

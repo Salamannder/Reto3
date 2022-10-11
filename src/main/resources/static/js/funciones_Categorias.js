@@ -16,6 +16,8 @@ function guardarInformacion() {
             //console.log(respuesta);
             alert("Inserción exitosa");
             traerInformacion();
+            $("#name").val('');
+            $("#description").val('');
         },
         error: function(xhr, status) {
             alert('Operacion no satisfactoria,' + xhr.status);
@@ -53,14 +55,12 @@ function pintarRespuestaCategoria(items) {
 
     //declarar variables js
     let myTable = "<table>";
-    myTable += "<caption>Info Categorias</caption><tr><th>Nombre</th><th>Descripcion</th></tr>";
+    myTable += "<caption>Info Categorias</caption><tr><th>Nombre</th><th>Descripcion</th><th>Acciones</th></tr>";
     for (i = 0; i < items.length; i++) {
         myTable += "<tr>";
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].description + "</td>";
-
-
-        // myTable+="<td><button onclick='borrarCategoria("+items[i].description+")'>Borrar</button>";
+        myTable += "<td><button onclick='borrarElemento(" + items[i].id + ")'>Borrar</button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -68,20 +68,18 @@ function pintarRespuestaCategoria(items) {
 }
 
 
-/*
+
 
 function editarInformacion() {
     let myData = {
-        description: $("#description").val(),
+        id: $("#id").val(),
         name: $("#name").val(),
-        email: $("#email").val(),
-        age: $("#age").val(),
-        password: $("#password").val(),
+        description: $("#description").val()
     };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Category/",
+        url: "http://129.213.160.180:81/api/Category/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -90,6 +88,9 @@ function editarInformacion() {
             //console.log(respuesta);
             alert("Actualizacion exitosa");
             traerInformacion();
+            $("#id").val('');
+            $("#name").val('');
+            $("#description").val('');
         },
         error: function(xhr, status) {
             alert("Operacion no satisfactoria," + xhr.status);
@@ -98,12 +99,12 @@ function editarInformacion() {
     });
 }
 
-function borrarElemento(descriptionElemento) {
-    let myData = { description: descriptionElemento };
+function borrarElemento(idElemento) {
+    let myData = { id: idElemento };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Category/",
+        url: "http://129.213.160.180:81/api/Category/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -118,22 +119,23 @@ function borrarElemento(descriptionElemento) {
             traerInformacion();
         },
     });
-}*/
-/*
-function consultarId() {
-    let codigo = $("#description").val();
 
-    $.ajax({
-        url: "http://localhost:8080/api/Category//" +
-            codigo,
-        type: "GET",
-        dataType: "json",
-        success: function(respuesta) {
-            pintarRespuesta(respuesta.items);
-        },
-        error: function(xhr, status) {
-            alert("Operacion no satisfactoria," + xhr.status);
-        },
-    });
-} 
-*/
+
+    /*function consultarId() {
+        let codigo = $("#description").val();
+
+        $.ajax({
+            url: "http://129.213.160.180:81/api/Category//" +
+                codigo,
+            type: "GET",
+            dataType: "json",
+            success: function(respuesta) {
+                pintarRespuesta(respuesta.items);
+            },
+            error: function(xhr, status) {
+                alert("Operacion no satisfactoria," + xhr.status);
+            },
+        });
+    }
+    */
+}

@@ -97,7 +97,7 @@ td {
     margin-bottom: 10px;
     /* Safari */
     transition-duration: 0.4s;
-    width: 130px;
+    width: 150px;
 }
 
 .button:hover {
@@ -110,7 +110,7 @@ td {
     margin-bottom: 10px;
     /* Safari */
     transition-duration: 0.4s;
-    width: 335px;
+    width: 100px;
 }
 
 .button2:hover {

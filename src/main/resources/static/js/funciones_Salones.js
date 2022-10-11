@@ -16,6 +16,11 @@ function guardarInformacion() {
             //console.log(respuesta);
             alert("Inserción exitosa");
             traerInformacion();
+            $("#name").val('');
+            $("#owner").val('');
+            $("#capacity").val('');
+            $("#description").val('');
+            $("#categoryId").val('');
         },
         error: function(xhr, status) {
             alert('Operacion no satisfactoria,' + xhr.status);
@@ -31,7 +36,7 @@ function traerInformacion() {
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
-                pintarRespuestaCategoria(respuesta);
+                pintarRespuestaSalones(respuesta);
                 traerInformacion();
 
             },
@@ -47,13 +52,13 @@ function traerInformacion() {
 }
 
 
-function pintarRespuestaCategoria(items) {
+function pintarRespuestaSalones(items) {
 
     $("#resultado").empty();
 
     //declarar variables js
     let myTable = "<table>";
-    myTable += "<caption>Info Partyroom</caption><tr><th>Nombre</th><th>Dueño</th><th>Capacidad</th><th>Description</th><th>Categoria</th></tr>";
+    myTable += "<caption>Info Partyroom</caption><tr><th>Nombre</th><th>Dueño</th><th>Capacidad</th><th>Description</th><th>Categoria</th><th>Acciones</th></tr>";
     for (i = 0; i < items.length; i++) {
         myTable += "<tr>";
         myTable += "<td>" + items[i].name + "</td>";
@@ -61,8 +66,7 @@ function pintarRespuestaCategoria(items) {
         myTable += "<td>" + items[i].capacity + "</td>";
         myTable += "<td>" + items[i].description + "</td>";
         myTable += "<td>" + items[i].category.name + "</td>";
-
-        // myTable+="<td><button onclick='borrarCategoria("+items[i].id+")'>Borrar</button>";
+        myTable += "<td><button onclick='borrarElemento(" + items[i].id + ")'>Borrar</button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -70,20 +74,20 @@ function pintarRespuestaCategoria(items) {
 }
 
 
-/*
 
 function editarInformacion() {
     let myData = {
-        idPartyroom: $("#idPartyroom").val(),
+        id: $("#id").val(),
         name: $("#name").val(),
         owner: $("#owner").val(),
         capacity: $("#capacity").val(),
         description: $("#description").val(),
+        category: { id: $("#categoryId").val() }
     };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Partyroom/",
+        url: "http://129.213.160.180:81/api/Partyroom/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -92,6 +96,12 @@ function editarInformacion() {
             //console.log(respuesta);
             alert("Actualizacion exitosa");
             traerInformacion();
+            $("#id").val('');
+            $("#name").val('');
+            $("#owner").val('');
+            $("#capacity").val('');
+            $("#description").val('');
+            $("#categoryId").val('');
         },
         error: function(xhr, status) {
             alert("Operacion no satisfactoria," + xhr.status);
@@ -101,11 +111,11 @@ function editarInformacion() {
 }
 
 function borrarElemento(idElemento) {
-    let myData = { idPartyroom: idElemento };
+    let myData = { id: idElemento };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Partyroom/",
+        url: "http://129.213.160.180:81/api/Partyroom/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -120,13 +130,13 @@ function borrarElemento(idElemento) {
             traerInformacion();
         },
     });
-}*/
-/*
-function consultarId() {
-    let codigo = $("#id").val();
+
+}
+/*function consultarId() {
+    let codigo = $("#description").val();
 
     $.ajax({
-        url: "http://localhost:8080/api/Partyroom//" +
+        url: "http://129.213.160.180:81/api/Category//" +
             codigo,
         type: "GET",
         dataType: "json",
@@ -137,5 +147,5 @@ function consultarId() {
             alert("Operacion no satisfactoria," + xhr.status);
         },
     });
-} 
+}
 */

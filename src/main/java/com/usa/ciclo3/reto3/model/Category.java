@@ -21,7 +21,7 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category")
-    @JsonIgnoreProperties({"category"})
+    @JsonIgnoreProperties({ "category" })
     private List<Partyroom> partyrooms;
 
     public Integer getId() {
@@ -47,7 +47,7 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public List<Partyroom> getPartyrooms() {
         return partyrooms;
     }

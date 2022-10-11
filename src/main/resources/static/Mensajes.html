@@ -12,7 +12,7 @@
 
 <body style="background-image:url(Img/Fiesta.jpg) ;" onload="traerInformacion()">
     <h1>(☞ﾟヮﾟ)☞ Gestion De Mensajes</h1>
-    <a href="Index.html"><button style="margin-left: 92%;" class="button" a>Volver</button></h1></a>
+    <a href="Index.html"><button style="margin-left: 92%;" class="button2" a>Volver</button></h1></a>
     <!--<div class="div-3">
         <p>
             <h3 class="H3_">BUSCAR:<input class="inputb" type="text " id="idMessage " placeholder="codigo Mensaje " /><button class="buttonp " onclick="consultarId()">Buscar Id</button></h3>
@@ -25,30 +25,24 @@
 
         <div class="div-1">
             <h3>MENSAJE</h3>
-            <!--
             <p>
-                Codigo Mensaje: ‍‍‍‍‍<input type="text " id="idMessage" placeholder="codigo Mensaje " />
-                <br />
-            </p>
-            -->
-            <p>
-                Texto Mensaje:‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍<input type="text " id="messageText" placeholder="Texto Mensaje " />
+                Codigo:        <input type="text " id="idMessage" placeholder="codigo Mensaje " />
                 <br />
             </p>
             <p>
-                Partyroom: ㅤ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍
-                <input type="number " id="partyroomId" placeholder="Partyroom " />
+                Texto:           <input type="text " id="messageText" placeholder="Texto Mensaje " />
                 <br />
             </p>
             <p>
-                Cliente: ㅤ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍
-                ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍ ‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍‍
-                <input type="number " id="clientId" placeholder="Cliente " />
+                Partyroom:  <input type="number " id="partyroomId" placeholder="Partyroom " />
                 <br />
             </p>
-            <button class=" button2 " onclick="guardarInformacion() ">
-          Insertar
-        </button>
+            <p>
+                Cliente:        <input type="number " id="clientId" placeholder="Cliente " />
+                <br />
+            </p>
+            <button class=" button " onclick="guardarInformacion() "> Insertar </button>
+            <button class="button " onclick="editarInformacion() "> Actualizar </button>
         </div>
     </div>
     <script type="text/javascript " src="js/funciones_Mensajes.js "></script>

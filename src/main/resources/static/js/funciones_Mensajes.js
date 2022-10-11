@@ -1,63 +1,61 @@
 function guardarInformacion() {
-
     $("#resultado").empty();
 
-    let myData = { messageText: $("#messageText").val(), partyroom: { id: $("#partyroomId").val() }, client: { idClient: $("#clientId").val() } }
+    let myData = {
+        messageText: $("#messageText").val(),
+        partyroom: { id: $("#partyroomId").val() },
+        client: { idClient: $("#clientId").val() },
+    };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-
-        url: 'http://129.213.160.180:81/api/Message/save',
-        type: 'POST',
+        url: "http://129.213.160.180:81/api/Message/save",
+        type: "POST",
         data: dataToSend,
         datatype: "JSON",
-        contentType: 'application/json',
+        contentType: "application/json",
         success: function(respuesta) {
             //console.log(respuesta);
             alert("Inserción exitosa");
             traerInformacion();
+            $("#messageText").val('');
+            $("#partyroomId").val('');
+            $("#clientId").val('');
         },
         error: function(xhr, status) {
-            alert('Operacion no satisfactoria,' + xhr.status);
+            alert("Operacion no satisfactoria," + xhr.status);
             traerInformacion();
-        }
-
+        },
     });
 }
 
 function traerInformacion() {
     $.ajax({
-            url: "http://129.213.160.180:81/api/Message/all",
-            type: "GET",
-            datatype: "JSON",
-            success: function(respuesta) {
-                pintarRespuestaCategoria(respuesta);
-                traerInformacion();
-
-            },
-            error: function(xhr, status) {
-                alert('Operacion no satisfactoria,' + xhr.status);
-
-            }
-
-
-        }
-
-    );
+        url: "http://129.213.160.180:81/api/Message/all",
+        type: "GET",
+        datatype: "JSON",
+        success: function(respuesta) {
+            pintarRespuestaMensaje(respuesta);
+            traerInformacion();
+        },
+        error: function(xhr, status) {
+            alert("Operacion no satisfactoria," + xhr.status);
+        },
+    });
 }
 
-
-function pintarRespuestaCategoria(items) {
-
+function pintarRespuestaMensaje(items) {
     $("#resultado").empty();
 
     //declarar variables js
     let myTable = "<table>";
-    myTable += "<caption>Info Messages</caption><tr><th>Texto del Mensaje</th></tr>";
+    myTable +=
+        "<caption>Info Messages</caption><tr><th>Texto del Mensaje</th><th>Acciones</th></tr>";
     for (i = 0; i < items.length; i++) {
         myTable += "<tr>";
         myTable += "<td>" + items[i].messageText + "</td>";
-        // myTable+="<td><button onclick='borrarCategoria("+items[i].id+")'>Borrar</button>";
+        myTable +=
+            "<td><button onclick='borrarElemento(" + items[i].idMessage + ")'>Borrar</button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -65,20 +63,18 @@ function pintarRespuestaCategoria(items) {
 }
 
 
-/*
 
 function editarInformacion() {
     let myData = {
         idMessage: $("#idMessage").val(),
         messageText: $("#messageText").val(),
-        email: $("#email").val(),
-        age: $("#age").val(),
-        password: $("#password").val(),
+        partyroom: { id: $("#partyroomId").val() },
+        client: { idClient: $("#clientId").val() }
     };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Messages/",
+        url: "http://129.213.160.180:81/api/Message/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -87,6 +83,10 @@ function editarInformacion() {
             //console.log(respuesta);
             alert("Actualizacion exitosa");
             traerInformacion();
+            $("#idMessage").val('');
+            $("#messageText").val('');
+            $("#partyroomId").val('');
+            $("#clientId").val('');
         },
         error: function(xhr, status) {
             alert("Operacion no satisfactoria," + xhr.status);
@@ -100,7 +100,7 @@ function borrarElemento(idElemento) {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Messages/",
+        url: "http://129.213.160.180:81/api/Message/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -115,22 +115,22 @@ function borrarElemento(idElemento) {
             traerInformacion();
         },
     });
-}*/
-/*
-function consultarId() {
-    let codigo = $("#id").val();
 
-    $.ajax({
-        url: "http://localhost:8080/api/Messages//" +
-            codigo,
-        type: "GET",
-        dataType: "json",
-        success: function(respuesta) {
-            pintarRespuesta(respuesta.items);
-        },
-        error: function(xhr, status) {
-            alert("Operacion no satisfactoria," + xhr.status);
-        },
-    });
-} 
-*/
+    /*function consultarId() {
+          let codigo = $("#description").val();
+
+          $.ajax({
+              url: "http://129.213.160.180:81/api/Category//" +
+                  codigo,
+              type: "GET",
+              dataType: "json",
+              success: function(respuesta) {
+                  pintarRespuesta(respuesta.items);
+              },
+              error: function(xhr, status) {
+                  alert("Operacion no satisfactoria," + xhr.status);
+              },
+          });
+      }
+      */
+}

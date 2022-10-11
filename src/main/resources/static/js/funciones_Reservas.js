@@ -16,6 +16,11 @@ function guardarInformacion() {
             //console.log(respuesta);
             alert("Inserción exitosa");
             traerInformacion();
+            $("#startDate").val('');
+            $("#devolutionDate").val('');
+            $("#partyroomId").val('');
+            $("#clientId").val('');
+            $("#score").val('');
         },
         error: function(xhr, status) {
             alert('Operacion no satisfactoria,' + xhr.status);
@@ -31,7 +36,7 @@ function traerInformacion() {
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
-                pintarRespuestaCategoria(respuesta);
+                pintarRespuestaResevacion(respuesta);
                 traerInformacion();
 
             },
@@ -47,13 +52,13 @@ function traerInformacion() {
 }
 
 
-function pintarRespuestaCategoria(items) {
+function pintarRespuestaResevacion(items) {
 
     $("#resultado").empty();
 
     //declarar variables js
     let myTable = "<table>";
-    myTable += "<caption>Info Reservas</caption><tr><th>Id Reservacion</th><th>Fecha de inicio</th><th>Fecha de Devolucion</th><th>Estado Reserva</th><th>Salon</th><th>Id Cliente</th><th>Cliente</th><th>Correo Cliente</th><th>Calificacion</th></tr>";
+    myTable += "<caption>Info Reservas</caption><tr><th>Id Reservacion</th><th>Fecha de inicio</th><th>Fecha de Devolucion</th><th>Estado Reserva</th><th>Salon</th><th>Id Cliente</th><th>Cliente</th><th>Correo Cliente</th><th>Calificacion</th><th>Acciones</th></tr>";
     for (i = 0; i < items.length; i++) {
         myTable += "<tr>";
         myTable += "<td>" + items[i].idReservation + "</td>";
@@ -65,7 +70,7 @@ function pintarRespuestaCategoria(items) {
         myTable += "<td>" + items[i].client.name + "</td>"
         myTable += "<td>" + items[i].client.email + "</td>"
         myTable += "<td>" + items[i].score + "</td>";;
-        // myTable+="<td><button onclick='borrarCategoria("+items[i].id+")'>Borrar</button>";
+        myTable += "<td><button onclick='borrarElemento(" + items[i].idReservation + ")'>Borrar</button></td>";
         myTable += "</tr>";
     }
     myTable += "</table>";
@@ -73,20 +78,20 @@ function pintarRespuestaCategoria(items) {
 }
 
 
-/*
 
 function editarInformacion() {
     let myData = {
         idReservation: $("#idReservation").val(),
         startDate: $("#startDate").val(),
         devolutionDate: $("#devolutionDate").val(),
-        status: $("#status").val(),
-        password: $("#password").val(),
+        partyroom: { id: $("#partyroomId").val() },
+        client: { idClient: $("#clientId").val() },
+        score: $("#score").val(),
     };
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Reservation/",
+        url: "http://129.213.160.180:81/api/Reservation/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -95,6 +100,12 @@ function editarInformacion() {
             //console.log(respuesta);
             alert("Actualizacion exitosa");
             traerInformacion();
+            $("#idReservation").val('');
+            $("#startDate").val('');
+            $("#devolutionDate").val('');
+            $("#partyroomId").val('');
+            $("#clientId").val('');
+            $("#score").val('');
         },
         error: function(xhr, status) {
             alert("Operacion no satisfactoria," + xhr.status);
@@ -108,7 +119,7 @@ function borrarElemento(idElemento) {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Reservation/",
+        url: "http://129.213.160.180:81/api/Reservation/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -123,13 +134,13 @@ function borrarElemento(idElemento) {
             traerInformacion();
         },
     });
-}*/
-/*
-function consultarId() {
-    let codigo = $("#id").val();
+
+}
+/*function consultarId() {
+    let codigo = $("#description").val();
 
     $.ajax({
-        url: "http://localhost:8080/api/Reservation//" +
+        url: "http://129.213.160.180:81/api/Category//" +
             codigo,
         type: "GET",
         dataType: "json",
@@ -140,5 +151,5 @@ function consultarId() {
             alert("Operacion no satisfactoria," + xhr.status);
         },
     });
-} 
+}
 */

@@ -1,6 +1,7 @@
 package com.usa.ciclo3.reto3.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,14 @@ public class ReservationRepository {
 
     public Reservation salvarReservation(Reservation reservation) {
         return reservationCrudRepositoryInterfaz.save(reservation);
+    }
+
+    public Optional<Reservation> getReservation(int id) {
+        return reservationCrudRepositoryInterfaz.findById(id);
+    }
+
+    public void delete(Reservation reservation) {
+        reservationCrudRepositoryInterfaz.delete(reservation);
     }
 
 }
