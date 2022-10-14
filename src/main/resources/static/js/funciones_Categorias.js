@@ -7,7 +7,7 @@ function guardarInformacion() {
 
     $.ajax({
 
-        url: 'http://129.213.160.180:81/api/Category/save',
+        url: 'http://localhost:8080/api/Category/save',
         type: 'POST',
         data: dataToSend,
         datatype: "JSON",
@@ -29,7 +29,7 @@ function guardarInformacion() {
 
 function traerInformacion() {
     $.ajax({
-            url: "http://129.213.160.180:81/api/Category/all",
+            url: "http://localhost:8080/api/Category/all",
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
@@ -79,7 +79,7 @@ function editarInformacion() {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://129.213.160.180:81/api/Category/update",
+        url: "http://localhost:8080/api/Category/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -104,7 +104,7 @@ function borrarElemento(idElemento) {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://129.213.160.180:81/api/Category/" + idElemento,
+        url: "http://localhost:8080/api/Category/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -125,7 +125,7 @@ function borrarElemento(idElemento) {
         let codigo = $("#description").val();
 
         $.ajax({
-            url: "http://129.213.160.180:81/api/Category//" +
+            url: "http://localhost:8080/api/Category//" +
                 codigo,
             type: "GET",
             dataType: "json",

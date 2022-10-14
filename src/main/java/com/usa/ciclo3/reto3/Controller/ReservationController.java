@@ -1,5 +1,6 @@
 package com.usa.ciclo3.reto3.Controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usa.ciclo3.reto3.model.Reservation;
+import com.usa.ciclo3.reto3.reportes.ContadorClientes;
+import com.usa.ciclo3.reto3.reportes.StatusReservas;
 import com.usa.ciclo3.reto3.service.ReservationService;
+
+
 
 @RestController
 @RequestMapping("/api/Reservation")
@@ -52,4 +57,21 @@ public class ReservationController {
         return reservationService.borrarReservation(reservationId);
 
     }
+
+     
+    @GetMapping("/report-status")
+    public StatusReservas getStatusReservas() {
+        return reservationService.ReservacionStatus();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservasTiempo(@PathVariable("dateOne") String fechaInicial,@PathVariable("dateTwo") String fechaFinal) {
+        return reservationService.ReservacionTiempo(fechaInicial, fechaFinal);
+    }
+
+    @GetMapping("/report-clients")
+    public List<ContadorClientes> getClientes() {
+        return reservationService.reporteClientes();
+    }
+    
 }

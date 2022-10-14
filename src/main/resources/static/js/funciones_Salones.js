@@ -7,7 +7,7 @@ function guardarInformacion() {
 
     $.ajax({
 
-        url: 'http://129.213.160.180:81/api/Partyroom/save',
+        url: 'http://localhost:8080/api/Partyroom/save',
         type: 'POST',
         data: dataToSend,
         datatype: "JSON",
@@ -32,7 +32,7 @@ function guardarInformacion() {
 
 function traerInformacion() {
     $.ajax({
-            url: "http://129.213.160.180:81/api/Partyroom/all",
+            url: "http://localhost:8080/api/Partyroom/all",
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
@@ -87,7 +87,7 @@ function editarInformacion() {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://129.213.160.180:81/api/Partyroom/update",
+        url: "http://localhost:8080/api/Partyroom/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
@@ -115,7 +115,7 @@ function borrarElemento(idElemento) {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://129.213.160.180:81/api/Partyroom/" + idElemento,
+        url: "http://localhost:8080/api/Partyroom/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
@@ -136,7 +136,7 @@ function borrarElemento(idElemento) {
     let codigo = $("#description").val();
 
     $.ajax({
-        url: "http://129.213.160.180:81/api/Category//" +
+        url: "http://localhost:8080/api/Category//" +
             codigo,
         type: "GET",
         dataType: "json",
