@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta startDate="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Css/Style Reservacion.css">
+    <title>Reservas</title>
+</head>
+
+<body style="background-image:url(Img/Fiesta.jpg) ;" onload="consultarTopClientes(), traerReporteStatus() ">
+    <h1>(☞ﾟヮﾟ)☞ REPORTES</h1>
+    <a href="index.html"><button style="margin-left: 92%;" class="button2" a>Incio</button></h1></a>
+    <a href="Reservas.html"><button style="margin-left: 92%;" class="button2" a>Volver a Reservas</button></h1></a>
+
+
+    <div class="contenedor">
+        <div class="div-3">
+            <h3>Estado Reservas </h3>
+            <h5 style="margin-left: 5px; border: 5px solid; background-color: white;" id="completed" Completadas <br> <span id="count-completed"></span></h5>
+            <h5 style="margin-left: 5px; border: 5px solid; background-color: white;" 1d="cancelled" Canceladas <br> <span id="count-cancelled"></span></h5>
+        </div>
+    </div>
+    <div class="div-2">
+        <div id="resultados"></div>
+    </div>
+    <br>
+    <div class="div-2">
+        <h3>Generar Reporte Por Fechas</h3>
+        <label> Desde </label>
+        <input type="date" id="RstarDate" placeholder="descripcion">
+        <label> Hasta</label>
+        <input type="date" id="RdevolutionDate" placeholder="descripcion">
+        <button onclick="traerReporteDate()"> Generar Reporte por fecha </buttan>
+        </div>
+        <div class="div-2">
+        <div id="resultadoDate"> 
+        </div>
+    <script type="text/javascript " src="js/funciones_Reservas.js"></script>
+
+</body>
+
+</html>

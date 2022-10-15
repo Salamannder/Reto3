@@ -10,13 +10,12 @@ function guardarInformacion() {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Client/save",
+        url: "http://129.213.160.180:81/api/Client/save",
         type: "POST",
         data: dataToSend,
         datatype: "JSON",
         contentType: "application/json",
         success: function(respuesta) {
-            //console.log(respuesta);
             alert("Inserción exitosa");
             traerInformacion();
             $("#name").val('');
@@ -33,7 +32,7 @@ function guardarInformacion() {
 
 function traerInformacion() {
     $.ajax({
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://129.213.160.180:81/api/Client/all",
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -49,7 +48,6 @@ function traerInformacion() {
 function pintarRespuestaCliente(items) {
     $("#resultado").empty();
 
-    //declarar variables js
     let myTable = "<table>";
     myTable +=
         "<caption>Info Clientes</caption><tr><th>Codigo</th><th>Nombre</th><th>Email</th><th>Edad</th><th>Acciones</th></tr>";
@@ -79,13 +77,12 @@ function editarInformacion() {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Client/update",
+        url: "http://129.213.160.180:81/api/Client/update",
         type: "PUT",
         data: dataToSend,
         datatype: "JSON",
         contentType: "application/json",
         success: function(respuesta) {
-            //console.log(respuesta);
             alert("Actualizacion exitosa");
             traerInformacion();
             $("#idClient").val('');
@@ -107,13 +104,12 @@ function borrarElemento(idElemento) {
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-        url: "http://localhost:8080/api/Client/" + idElemento,
+        url: "http://129.213.160.180:81/api/Client/" + idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/json",
         datatype: "JSON",
         success: function(respuesta) {
-            // console.log(respuesta);
             alert("Borrado exitoso");
             traerInformacion();
         },
@@ -123,20 +119,3 @@ function borrarElemento(idElemento) {
         },
     });
 }
-/*function consultarId() {
-      let codigo = $("#description").val();
-
-      $.ajax({
-          url: "http://localhost:8080/api/Category//" +
-              codigo,
-          type: "GET",
-          dataType: "json",
-          success: function(respuesta) {
-              pintarRespuesta(respuesta.items);
-          },
-          error: function(xhr, status) {
-              alert("Operacion no satisfactoria," + xhr.status);
-          },
-      });
-  }
-  */

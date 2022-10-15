@@ -84,12 +84,11 @@ td {
 }
 
 .div-3 {
-    text-align: right;
     border: 5px solid;
     background-color: lightgreen;
-    padding-right: 10px;
-    margin-right: 50px;
+    padding-right: 15px;
     margin-left: 50px;
+    margin-bottom: 20px;
 }
 
 .button {

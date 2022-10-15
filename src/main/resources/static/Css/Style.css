@@ -8,6 +8,16 @@ h1 {
     margin-left: 50px;
 }
 
+h2 {
+    text-align: center;
+    background-color: white;
+    border: 5px solid;
+    color: black;
+    margin-top: 0px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
 h3 {
     border: 5px solid;
     margin-left: 5px;
@@ -94,7 +104,6 @@ td {
 .button {
     margin-left: 10px;
     margin-bottom: 10px;
-    /* Safari */
     transition-duration: 0.4s;
     width: 100px;
 }
@@ -107,7 +116,6 @@ td {
 .button2 {
     margin-left: 10px;
     margin-bottom: 10px;
-    /* Safari */
     transition-duration: 0.4s;
     width: 175px;
 }

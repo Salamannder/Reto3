@@ -5,30 +5,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alquiler De Salones De Fiesta</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Css/Style.css">
+    <title>Login</title>
 </head>
 
 <body style="background-image: url(Img/Fiesta.jpg)">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>
-        Selecciona El Área Que Deseas Ver
-    </h1>
-    <br>
-    <br>
-    <br>
-    <div style="text-align: center ">
-        <a title="Clientes " href="Clientes.html"><img style="border: 5px solid; color: black; " src="Img/Clientes.png" height="300 " width="300 " /></a>
-        <a title="Salones " href="Salones.html"><img style="border: 5px solid; color: black; " src="Img/fiesta.png" height="300 " width="300 " /></a>
-        <a title="Mensajes " href="Mensajes.html"><img style="border: 5px solid; color: black; " src="Img/mensaje.png" height="300 " width="300 " /></a>
-        <a title="Reservas " href="Reservas.html"><img style="border: 5px solid; color: black; " src="Img/Reservation.jpg" height="300 " width="300 " /></a>
-        <a title="Categoria " href="Categorias.html"><img style="border: 5px solid; color: black; " src="Img/Categoria.png" height="300 " width="300 " /></a>
+    <h1>Salon de Fiestas MinTic2022</h1>
+    <div class="container unauthenticated" style="text-align: center ">
+        <a title="Login" href="/oauth2/authorization/github"><img style="border: 5px solid; color: black; " src="Img/LoginGit.png" height="100 " width="300 " /></a>
+    </div>
+    <div class="container authenticated" style="display: none">
+        <h2> Haz Ingresado como como : <span id="user"> </span> <br><br> Selecciona El Área Que Deseas Ver</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center ">
+            <a title="Clientes " href="Clientes.html"><img style="border: 5px solid; color: black; " src="Img/Clientes.png" height="300 " width="300 " /></a>
+            <a title="Salones " href="Salones.html"><img style="border: 5px solid; color: black; " src="Img/fiesta.png" height="300 " width="300 " /></a>
+            <a title="Mensajes " href="Mensajes.html"><img style="border: 5px solid; color: black; " src="Img/mensaje.png" height="300 " width="300 " /></a>
+            <a title="Reservas " href="Reservas.html"><img style="border: 5px solid; color: black; " src="Img/Reservation.jpg" height="300 " width="300 " /></a>
+            <a title="Categoria " href="Categorias.html"><img style="border: 5px solid; color: black; " src="Img/Categoria.png" height="300 " width="300 " /></a>
+        </div>
     </div>
 </body>
+<script type="text/javascript" src="js/seguridad.js"></script>
 
 </html>

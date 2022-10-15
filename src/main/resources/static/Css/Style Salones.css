@@ -91,7 +91,6 @@ td {
 .button {
     margin-left: 10px;
     margin-bottom: 10px;
-    /* Safari */
     transition-duration: 0.4s;
     width: 150px;
 }
@@ -104,7 +103,6 @@ td {
 .button2 {
     margin-left: 10px;
     margin-bottom: 10px;
-    /* Safari */
     transition-duration: 0.4s;
     width: 100px;
 }
